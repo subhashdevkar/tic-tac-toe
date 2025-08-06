@@ -1,12 +1,11 @@
-import './App.css'
-import { Game } from './components/game'
+import Home from './pages/Home'
 
 function App() {
 
   return (
-    <>
-      <Game />
-    </>
+   <>
+    <Home />
+   </>
   )
 }
 

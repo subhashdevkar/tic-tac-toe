@@ -22,39 +22,35 @@ export function Board({ square, xIsNext, onPlay }) {
     let status;
     if (winner) {
         status = "Winner is :" + winner
-    }else if(!winner && square.every(item=>item!=="" && item!==null)){
-        status="This is a draw,Please restart the game"
+    } else if (!winner && square.every(item => item !== "" && item !== null)) {
+        status = "Draw! Please Restart the Game"
     }
-     else {
+    else {
         status = "Next move:" + (xIsNext ? "X" : "O")
     }
 
     return (
-        <div className="">
-            <div className="text-center bg-light font-bold fs-4">Tic-Toc-Toe</div>
-            <div>
-                <div className={xIsNext?"fw-bold text-success fs-4":"fw-bold text-danger fs-4"}>
-                    {status}
+        <div>
+            <div className={xIsNext ? "d-flex align-items-center fw-bold justify-content-center text-success fs-4" : "d-flex align-items-center fw-bold justify-content-center text-danger fs-4"} style={{maxWidth:"150px",height:"105px"}}>
+                {status}
+            </div>
+            <div className="border border-2">
+                <div>
+                    <Square value={square[0]} onSquareClick={() => handleClick(0)} />
+                    <Square value={square[1]} onSquareClick={() => handleClick(1)} />
+                    <Square value={square[2]} onSquareClick={() => handleClick(2)} />
                 </div>
-                <div className="border border-2">
-                    <div>
-                        <Square value={square[0]} onSquareClick={() => handleClick(0)} />
-                        <Square value={square[1]} onSquareClick={() => handleClick(1)} />
-                        <Square value={square[2]} onSquareClick={() => handleClick(2)} />
-                    </div>
-                    <div>
-                        <Square value={square[3]} onSquareClick={() => handleClick(3)} />
-                        <Square value={square[4]} onSquareClick={() => handleClick(4)} />
-                        <Square value={square[5]} onSquareClick={() => handleClick(5)} />
-                    </div>
-                    <div>
-                        <Square value={square[6]} onSquareClick={() => handleClick(6)} />
-                        <Square value={square[7]} onSquareClick={() => handleClick(7)} />
-                        <Square value={square[8]} onSquareClick={() => handleClick(8)} />
-                    </div>
+                <div>
+                    <Square value={square[3]} onSquareClick={() => handleClick(3)} />
+                    <Square value={square[4]} onSquareClick={() => handleClick(4)} />
+                    <Square value={square[5]} onSquareClick={() => handleClick(5)} />
+                </div>
+                <div>
+                    <Square value={square[6]} onSquareClick={() => handleClick(6)} />
+                    <Square value={square[7]} onSquareClick={() => handleClick(7)} />
+                    <Square value={square[8]} onSquareClick={() => handleClick(8)} />
                 </div>
             </div>
-
         </div>
     )
 }
