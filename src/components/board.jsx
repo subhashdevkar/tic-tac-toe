@@ -23,7 +23,7 @@ export function Board({ square, xIsNext, onPlay }) {
     if (winner) {
         status = "Winner is :" + winner
     }else if(!winner && square.every(item=>item!=="" && item!==null)){
-        status="this is a draw,Please restart the game"
+        status="This is a draw,Please restart the game"
     }
      else {
         status = "Next move:" + (xIsNext ? "X" : "O")
@@ -31,6 +31,7 @@ export function Board({ square, xIsNext, onPlay }) {
 
     return (
         <div className="">
+            <div className="text-center bg-light font-bold fs-4">Tic-Toc-Toe</div>
             <div>
                 <div className={xIsNext?"fw-bold text-success fs-4":"fw-bold text-danger fs-4"}>
                     {status}
